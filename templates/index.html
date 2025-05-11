@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roadtrip Budget Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/lux/bootstrap.min.css" rel="stylesheet"> <!-- Load in style -->
+    <style>
+        body {
+            background-image: url('https://i.ibb.co/0j1dy1LN/photo-1669873904455-d2a5f0e2c9da.jpg'); /* Make background an Image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1, h2, h3, h4, h5, h6 { /* Override default Lux text color */
+            color: white !important; 
+        }
+            .content-box {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .btn-primary {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-box">
+        <h1>🚗 Roadtrip Budget Tracker</h1>
+        <p class="lead">Plan your trip and manage your travel budget smartly.</p>
+        <a href="/create-trip" class="btn btn-primary">Create a New Trip</a>
+    </div>
+</body>
+</html>

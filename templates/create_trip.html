@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Your Trip</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/lux/bootstrap.min.css" rel="stylesheet"> <!-- Load in style -->
+    <style>
+
+        h1, h2, h3, h4, h5, h6 {
+            color: white !important; /* Override default Lux text color */
+        }
+        
+        /* Fixed banner at the top */
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        /* Add so the rest of  content doesn't overlap with the banner */
+        body {
+            padding-top: 70px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner --> 
+    <div class="banner">
+        <h1>Create Your Road Trip</h1>
+    </div>
+    <!-- Create input boxers-->
+    <div class="container mt-5">
+        <form action="/create-trip" method="POST" enctype="multipart/form-data">
+            <div class="form-group mt-4">
+                <label for="trip_name">Trip Name:</label>
+                <input type="text" class="form-control" id="trip_name" name="trip_name" required>
+            </div>
+            <div class="form-group mt-4">
+                <label for="miles">Total Miles:</label>
+                <input type="number" class="form-control" id="miles" name="miles" step="any" required>
+            </div>
+            <div class="form-group mt-4">
+                <label for="mileage">Car MPG:</label>
+                <input type="number" class="form-control" id="mileage" name="mileage" step="any" required>
+            </div>
+            <div class="form-group mt-4">
+                <label for="gas_price">Gas Price ($/gallon):</label>
+                <input type="number" class="form-control" id="gas_price" name="gas_price" step="any" required>
+            </div>
+            <div class="form-group mt-4">
+                <label for="hotel_cost">Hotel Cost ($):</label>
+                <input type="number" class="form-control" id="hotel_cost" name="hotel_cost" step="any" required>
+            </div>
+            <div class="form-group mt-4">
+                <label for="food_cost">Food Cost ($):</label>
+                <input type="number" class="form-control" id="food_cost" name="food_cost" step="any" required>
+            </div>
+            <div class="form-group mt-4">
+                <label for="activities_cost">Activities Cost ($):</label>
+                <input type="number" class="form-control" id="activities_cost" name="activities_cost" step="any" required>
+            </div>
+            <div class="form-group mt-4">
+                <label for="emergency_fund">Emergency Fund ($):</label>
+                <input type="number" class="form-control" id="emergency_fund" name="emergency_fund" step="any" required>
+            </div>
+            <div class="form-group mt-4">
+                <label for="buffer_fund">Buffer Fund ($):</label>
+                <input type="number" class="form-control" id="buffer_fund" name="buffer_fund" step="any" required>
+            </div>
+            <div class="form-group mt-4">
+                <label for="receipt">Upload Itinerary/Travel Guide (optional):</label>
+                <input type="file" class="form-control" id="itinerary" name="itinerary">
+            </div>
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-primary">Calculate Trip Budget</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

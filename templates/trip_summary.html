@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trip Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/lux/bootstrap.min.css" rel="stylesheet"> <!-- Load in style -->
+    <style>
+
+        h1, h2, h3, h4, h5, h6 { /* Override default Lux text color */
+            color: white !important;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .inside-card {
+            color: white;
+        }
+
+        .list-group-item {
+            color: white !important;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>🧾 Trip Budget Summary: {{ trip['trip_name'] }}</h2>
+        <div class="card bg-dark border-info inside-card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Trip Distance: {{ trip['miles'] }} miles</h5> 
+                <!-- Retrieves value of the field from the  dictionary and allows it to print to output -->
+                 <!-- https://jinja.palletsprojects.com/en/stable/templates/ -->
+                <p class="card-text">Car MPG: {{ trip['mileage'] }}</p>
+                <p class="card-text">Gas Price: ${{ trip['gas_price'] }}</p>
+                <p class="card-text"><strong>Estimated Gas Cost:</strong> ${{ trip['estimated_gas_cost'] }}</p>
+            </div>
+        </div>
+
+        <div class="card bg-dark border-success mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Budget Breakdown</h5>
+                <ul class="list-group list-group-flush text-white">
+                    <li class="list-group-item bg-transparent">Hotel: ${{ trip['hotel_cost'] }}</li>
+                    <li class="list-group-item bg-transparent">Food: ${{ trip['food_cost'] }}</li>
+                    <li class="list-group-item bg-transparent">Activities: ${{ trip['activities_cost'] }}</li>
+                    <li class="list-group-item bg-transparent">Emergency Fund: ${{ trip['emergency_fund'] }}</li>
+                    <li class="list-group-item bg-transparent">Miscellaneous: ${{ trip['buffer_fund'] }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card bg-dark border-warning mt-4">
+            <div class="card-body">
+                <h5 class="card-title">💰 Total Estimated Cost</h5>
+                <h4 class="text-warning">${{ trip['total_budget'] }}</h4>
+            </div>
+        </div>
+
+
+        {% if trip.itinerary_url %} <!-- % is for statements like in Python https://jinja.palletsprojects.com/en/stable/templates/-->
+            <div class="card bg-dark border-info mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">📄 Itinerary</h5>
+                    <a href="{{ trip.itinerary_url }}" class="btn btn-outline-info" target="_blank">
+                        View Uploaded Itinerary
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    
+        <div class="mt-4">
+            <a href="/" class="btn btn-secondary">Home</a>
+            <a href="/create-trip" class="btn btn-primary">Plan Another Trip</a>
+        </div>
+    </div>
+</body>
+</html>
